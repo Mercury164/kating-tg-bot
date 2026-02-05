@@ -1,0 +1,12 @@
+.env
+.env.*
+secrets/
+*.pem
+*.key
+*.log
+runs/
+dist/
+bin/
+.DS_Store
+.idea/
+.vscode/

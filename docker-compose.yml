@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  bot:
+    build: .
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - GOOGLE_SHEETS_SPREADSHEET_ID=${GOOGLE_SHEETS_SPREADSHEET_ID}
+      - GOOGLE_SERVICE_ACCOUNT_JSON=/run/secrets/service-account.json
+      - ADMIN_TG_IDS=${ADMIN_TG_IDS}
+      - PAYMENT_PROVIDER=${PAYMENT_PROVIDER}
+      - PAYMENT_WEBHOOK_SECRET=${PAYMENT_WEBHOOK_SECRET}
+      - HTTP_ADDR=:8080
+      - BASE_PUBLIC_URL=${BASE_PUBLIC_URL}
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./secrets:/run/secrets:ro
